@@ -727,3 +727,4 @@ html.motion .hero-ctas .btn { animation: pulse-glow 2.8s ease-in-out 2s infinite
   letter-spacing: 0.01em;
 }
 .trp-badge svg { width: 16px; height: 16px; }
+.logo-track img.wide { height: 28px; max-width: 260px; }
