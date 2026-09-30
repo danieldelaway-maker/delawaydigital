@@ -677,3 +677,5 @@ html.motion .hero-ctas .btn { animation: pulse-glow 2.8s ease-in-out 2s infinite
 /* Back of flip cards: override the older .case-card p:last-child colour/size */
 .case-card .flip-back p:last-child { color: #fff; font: 400 15px/1.6 var(--font-alt); margin: 0; }
 @media (hover: none) { .case-card .flip-back p:last-child { font-size: 14px; } }
+
+.intro-card .intro-lead { color: var(--ink); font-size: 19px; line-height: 1.55; font-weight: 500; }
