@@ -707,3 +707,7 @@ html.motion .hero-ctas .btn { animation: pulse-glow 2.8s ease-in-out 2s infinite
 }
 .step:hover .step-num { transform: translateY(-4px) scale(1.06); color: rgba(94, 235, 201, 0.25); }
 .step:hover .step-icon { transform: rotate(-8deg) scale(1.1); }
+
+/* Longer logo strip (press + clients): slower loop so each logo stays readable */
+.logo-track { animation-duration: 60s; gap: 80px; }
+.logo-track img { max-width: 200px; object-fit: contain; }
