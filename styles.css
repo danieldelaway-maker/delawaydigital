@@ -509,3 +509,69 @@ p + p { margin-top: 0.9em; }
 .talk-to { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
 .talk-to img { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--teal); }
 .talk-to p { font-weight: 600; color: var(--ink); }
+
+/* ---------- Spacing pass: give homepage sections more room ---------- */
+.section { padding-top: 110px; }
+.section-title { margin-bottom: 48px; }
+.section-subtitle { margin: -32px 0 56px; }
+
+.hero-v2 { padding: 100px 0 40px; }
+.hero-wordmark { margin-bottom: 64px; }
+.hero-v2 .eyebrow { margin-bottom: 18px; }
+.hero-v2 .lead { margin-top: 30px; line-height: 1.65; }
+.hero-ctas { margin-top: 44px; }
+.stats { margin-top: 96px; gap: 36px; }
+.stat { padding: 30px 20px; }
+
+.trust { padding-top: 90px; }
+.trust .logo-strip { margin-top: 12px; }
+.trust .reviews-bar { margin-top: 36px; }
+
+.story-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center; }
+.story { max-width: none; }
+.story .section-title { margin-bottom: 28px; }
+.story .btn { margin-top: 16px; }
+.story-photo { width: 100%; border-radius: 14px; box-shadow: var(--glow); border: 3px solid var(--teal); aspect-ratio: 4 / 5; object-fit: cover; object-position: 60% center; }
+
+.intro-card { padding: 48px; gap: 56px; }
+.steps { gap: 30px; }
+.step { padding: 32px 28px; }
+.card-grid { gap: 40px; }
+.service-card { padding: 32px 28px; }
+.results { gap: 44px; }
+.result { padding: 28px; gap: 44px; }
+.subhead { margin: 90px 0 40px; }
+.testimonial-grid { gap: 40px; }
+.testimonial { padding: 32px 32px 0; }
+.featured-testimonial { margin-top: 80px; }
+.compare th, .compare td { padding: 20px 16px; }
+.faq details { margin-bottom: 18px; }
+.contact-v2 { padding-top: 120px; }
+.contact-grid { gap: 72px; }
+.cro-time { margin-top: 120px; }
+
+@media (max-width: 1024px) {
+  .story-grid { grid-template-columns: 1fr; gap: 40px; }
+  .story-photo { aspect-ratio: 16 / 10; }
+}
+@media (max-width: 767px) {
+  .section { padding-top: 72px; }
+  .section-title { margin-bottom: 32px; }
+  .section-subtitle { margin: -20px 0 36px; }
+  .hero-v2 { padding: 56px 0 24px; }
+  .hero-wordmark { margin-bottom: 36px; }
+  .stats { margin-top: 56px; gap: 18px; }
+  .trust { padding-top: 56px; }
+  .intro-card { padding: 28px; gap: 28px; }
+  .result { padding: 20px; gap: 22px; }
+  .subhead { margin: 56px 0 28px; }
+  .contact-v2 { padding-top: 80px; }
+  .contact-grid { gap: 40px; }
+  .cro-time { margin-top: 80px; }
+}
+
+/* Hero balance: headline narrower than the wordmark, highlight sits behind the word */
+.hero-v2 h1 { max-width: 760px; font-size: 40px; line-height: 1.2; }
+.highlight { background: linear-gradient(transparent 58%, rgba(94, 235, 201, 0.6) 58%, rgba(94, 235, 201, 0.6) 88%, transparent 88%); padding: 0 6px; }
+.hero-v2 .lead { max-width: 600px; font-size: 18px; }
+@media (max-width: 767px) { .hero-v2 h1 { font-size: 28px; } }
