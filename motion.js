@@ -13,7 +13,7 @@
   const revealSelector = [
     '.section-title', '.section-subtitle', '.story p', '.story-photo', '.intro-card',
     '.step', '.service-card', '.result', '.subhead', '.case-card', '.compare-wrap',
-    '.testimonial', '.featured-testimonial', '.faq details', '.contact-copy', '.contact-form', '.proof-card',
+    '.testimonial', '.featured-testimonial', '.faq details', '.contact-copy', '.contact-form', '.proof-card', '.mini-result', '.fit-list li',
     '.trust-label', '.reviews-bar', '.cta-box', '.about h1', '.about > .container > p'
   ].join(',');
   const items = document.querySelectorAll(revealSelector);
