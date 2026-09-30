@@ -45,7 +45,7 @@
   <!-- ===== Header (same on every page) ===== -->
   <header class="site-header">
     <div class="container">
-      <a class="logo" href="/" aria-label="Delaway Digital home"><img class="logo-mark" src="/assets/logo-dd-icon.png" alt="" width="33" height="36"></a>
+      <a class="logo" href="/" aria-label="Delaway Digital home"><img class="logo-mark" src="/assets/logo-dd-icon.png" alt="" width="32" height="36"></a>
       <nav class="site-nav" aria-label="Main">
         <a class="hide-mobile" href="/#results">Results</a>
         <a href="/about/">About me</a>
@@ -73,9 +73,9 @@
         </div>
 
         <ul class="stats">
-          <li class="stat glow-card"><strong>$50M+</strong><span>Revenue generated for clients</span></li>
-          <li class="stat glow-card"><strong>10+ years</strong><span>In marketing, copy &amp; CRO</span></li>
-          <li class="stat glow-card"><strong>100%</strong><span>Job Success</span></li>
+          <li class="stat glow-card"><strong data-count="50" data-prefix="$" data-suffix="M+">$50M+</strong><span>Revenue generated for clients</span></li>
+          <li class="stat glow-card"><strong data-count="10" data-suffix="+ years">10+ years</strong><span>In marketing, copy &amp; CRO</span></li>
+          <li class="stat glow-card"><strong data-count="100" data-suffix="%">100%</strong><span>Job Success</span></li>
         </ul>
       </div>
     </section>
@@ -87,17 +87,33 @@
         <div class="logo-strip" aria-label="As featured in">
           <div class="logo-track">
             <img src="/assets/press-news-com-au.png" alt="news.com.au" height="38">
+            <img src="/assets/client-sls3.png" alt="SLS3" height="38">
             <img src="/assets/press-daily-mail.png" alt="Daily Mail" height="38">
+            <img src="/assets/client-zensim.png" alt="ZenSim" height="38">
             <img src="/assets/press-the-australian.png" alt="The Australian" height="38">
+            <img src="/assets/client-klik.png" alt="Klik" height="38">
             <img src="/assets/press-state-library-victoria.png" alt="State Library Victoria" height="38">
+            <img src="/assets/client-lets-wander.png" alt="Let’s Wander" height="38">
             <img src="/assets/press-abc.png" alt="ABC" height="38">
+            <img src="/assets/client-moonrunners.png" alt="Moonrunners" height="38">
             <img src="/assets/press-jagermeister.png" alt="Jägermeister" height="38">
+            <img src="/assets/client-thimsa.png" alt="Thimsa" height="38">
+            <img src="/assets/logo-wildfire-digital.png" alt="Wildfire Digital" height="38">
+            <img src="/assets/client-minimalist-training-club.png" alt="Minimalist Training Club" height="38">
             <img src="/assets/press-news-com-au.png" alt="" aria-hidden="true" height="38">
+            <img src="/assets/client-sls3.png" alt="" aria-hidden="true" height="38">
             <img src="/assets/press-daily-mail.png" alt="" aria-hidden="true" height="38">
+            <img src="/assets/client-zensim.png" alt="" aria-hidden="true" height="38">
             <img src="/assets/press-the-australian.png" alt="" aria-hidden="true" height="38">
+            <img src="/assets/client-klik.png" alt="" aria-hidden="true" height="38">
             <img src="/assets/press-state-library-victoria.png" alt="" aria-hidden="true" height="38">
+            <img src="/assets/client-lets-wander.png" alt="" aria-hidden="true" height="38">
             <img src="/assets/press-abc.png" alt="" aria-hidden="true" height="38">
+            <img src="/assets/client-moonrunners.png" alt="" aria-hidden="true" height="38">
             <img src="/assets/press-jagermeister.png" alt="" aria-hidden="true" height="38">
+            <img src="/assets/client-thimsa.png" alt="" aria-hidden="true" height="38">
+            <img src="/assets/logo-wildfire-digital.png" alt="" aria-hidden="true" height="38">
+            <img src="/assets/client-minimalist-training-club.png" alt="" aria-hidden="true" height="38">
           </div>
         </div>
         <div class="reviews-bar">
@@ -133,9 +149,10 @@
         <div>
           <p class="eyebrow">A bit about me</p>
           <h2>Hey, I’m Dan 👋</h2>
-          <p>I’ve spent 10+ years in marketing: agency-side as Lead CRO Specialist at Wildfire Digital, as an international copywriter for Jägermeister, and now as a Fractional CMO for growing e-commerce brands.</p>
-          <p>I studied Economics and Behavioural Psychology at Monash, which is a fancy way of saying I’m obsessed with why people click “buy”, and why they don’t.</p>
-          <p>My friends even turned my name into a verb: to <em>Daniel</em> someone is to cut through the fluff and get real about what’s holding them back. That’s exactly how I work with founders.</p>
+          <p class="intro-lead">I’ve written for Jägermeister, helped a Web3 launch pull in $16M in its first week, and scaled a Shopify brand 33x. But my favourite part of the job is simpler: finding the one thing quietly stopping your visitors from buying.</p>
+          <p>After 10+ years across agency, in-house and Fractional CMO roles, I’ve learned the gap between an average store and an incredible one is rarely the product. It’s the dozens of small details (the headline, the offer, the product page, the checkout, the follow-up email) that decide whether a visitor buys or bounces. Getting every one of them right is what I do.</p>
+          <p>I studied Economics and Behavioural Psychology at Monash, and on the side I’ve interviewed 100+ people about their life stories as a video-biographer. Both taught me the same lesson: people buy with emotion and justify it with logic. Great CRO speaks to both.</p>
+          <p>My friends even turned my name into a verb. To <em>Daniel</em> someone is to cut through the fluff and get honest about what’s really holding them back. Fair warning: that’s exactly how I’ll treat your website.</p>
           <a class="btn" href="/about/">More about me</a>
         </div>
       </div>
@@ -148,22 +165,26 @@
         <p class="section-subtitle">A 4-step system for turning more of your existing traffic into customers.</p>
         <ol class="steps">
           <li class="step glow-card">
-            <span class="step-num">1</span>
+            <span class="step-num" aria-hidden="true">01</span>
+            <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M8 11h6"/></svg></span>
             <h3>Diagnose</h3>
             <p>A deep audit of your site, funnel, ads and emails. You’ll see exactly where revenue is leaking and which fixes are worth the most.</p>
           </li>
           <li class="step glow-card">
-            <span class="step-num">2</span>
+            <span class="step-num" aria-hidden="true">02</span>
+            <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span>
             <h3>Prioritise</h3>
             <p>A roadmap ranked by impact, not effort, so we fix what moves revenue first instead of what’s easiest.</p>
           </li>
           <li class="step glow-card">
-            <span class="step-num">3</span>
+            <span class="step-num" aria-hidden="true">03</span>
+            <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span>
             <h3>Execute</h3>
             <p>I do the work: rewrite the copy, redesign key pages, rebuild email flows and launch the ads. No handoffs.</p>
           </li>
           <li class="step glow-card">
-            <span class="step-num">4</span>
+            <span class="step-num" aria-hidden="true">04</span>
+            <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
             <h3>Scale</h3>
             <p>Test, measure and double down on what wins, with conversion rate, AOV and revenue tracked every step of the way.</p>
           </li>
@@ -203,6 +224,18 @@
 
         <div class="results">
           <article class="result glow-card">
+            <img src="/assets/case-study-sls3-triathlons.webp" alt="SLS3 Triathlons logo" width="400" height="360" loading="lazy">
+            <div>
+              <p class="category">E-commerce · Fractional CMO</p>
+              <h3>SLS3: 33x Shopify revenue</h3>
+              <p>Two-plus years as Fractional CMO for a US triathlon brand: conversion rate, design, hiring and ad campaigns, scaling Shopify revenue from $15k to over $500k and into new international markets.</p>
+              <ul class="metrics">
+                <li><strong>33x</strong><span>$15k → $500k+ revenue</span></li>
+                <li><strong>2+ years</strong><span>Ongoing partnership</span></li>
+              </ul>
+            </div>
+          </article>
+          <article class="result glow-card">
             <img src="/assets/case-study-moonrunners.webp" alt="Moonrunners logo over a moonlit night scene" width="400" height="360" loading="lazy">
             <div>
               <p class="category">Web3 launch · Lead Copywriter &amp; CRO</p>
@@ -226,57 +259,93 @@
               </ul>
             </div>
           </article>
-          <article class="result glow-card">
-            <img src="/assets/case-study-sls3-triathlons.webp" alt="SLS3 Triathlons logo" width="400" height="360" loading="lazy">
-            <div>
-              <p class="category">E-commerce · Fractional CMO</p>
-              <h3>SLS3: 33x Shopify revenue</h3>
-              <p>Two-plus years as Fractional CMO for a US triathlon brand: conversion rate, design, hiring and ad campaigns, scaling Shopify revenue from $15k to over $500k and into new international markets.</p>
-              <ul class="metrics">
-                <li><strong>33x</strong><span>$15k → $500k+ revenue</span></li>
-                <li><strong>2+ years</strong><span>Ongoing partnership</span></li>
-              </ul>
-            </div>
-          </article>
         </div>
 
         <h3 class="subhead">More brands I’ve worked with</h3>
         <div class="case-grid">
-          <article class="case-card">
-            <img src="/assets/case-study-flavr-bottle.webp" alt="Flavr Bottle water bottle with fruit" width="400" height="360" loading="lazy">
-            <p class="category">E-Commerce</p>
-            <h3>Flavr Bottle</h3>
-            <p>Fractional CMO and CRO consultant for an e-commerce launch that grossed $250k in its first month.</p>
+          <article class="case-card flip" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img src="/assets/case-study-flavr-bottle.webp" alt="Flavr Bottle water bottle with fruit" width="400" height="360" loading="lazy">
+                <p class="category">E-Commerce</p>
+                <h3>Flavr Bottle</h3>
+                <p class="flip-hint" aria-hidden="true">Hover for the story ↻</p>
+              </div>
+              <div class="flip-back">
+                <p class="flip-title" aria-hidden="true">Flavr Bottle</p>
+                <p>Fractional CMO and CRO consultant for an e-commerce launch that grossed $250k in its first month.</p>
+              </div>
+            </div>
           </article>
-          <article class="case-card">
-            <img src="/assets/case-study-jagermeister.webp" alt="Jägermeister logo" width="400" height="360" loading="lazy">
-            <p class="category">Global Brands</p>
-            <h3>Jägermeister</h3>
-            <p>International copywriter for a brand turning over half a billion a year, tailoring copy for audiences around the world.</p>
+          <article class="case-card flip" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img src="/assets/case-study-jagermeister.webp" alt="Jägermeister logo" width="400" height="360" loading="lazy">
+                <p class="category">Global Brands</p>
+                <h3>Jägermeister</h3>
+                <p class="flip-hint" aria-hidden="true">Hover for the story ↻</p>
+              </div>
+              <div class="flip-back">
+                <p class="flip-title" aria-hidden="true">Jägermeister</p>
+                <p>International copywriter for a brand turning over half a billion a year, tailoring copy for audiences around the world.</p>
+              </div>
+            </div>
           </article>
-          <article class="case-card">
-            <img src="/assets/case-study-wildfire-digital.webp" alt="Wildfire Digital logo" width="400" height="360" loading="lazy">
-            <p class="category">Agency</p>
-            <h3>Wildfire Digital</h3>
-            <p>Lead CRO Specialist and Copywriter for one of Australia’s most successful Digital Marketing Agencies, working with e-com clients and SMEs.</p>
+          <article class="case-card flip" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img src="/assets/case-study-wildfire-digital.webp" alt="Wildfire Digital logo" width="400" height="360" loading="lazy">
+                <p class="category">Agency</p>
+                <h3>Wildfire Digital</h3>
+                <p class="flip-hint" aria-hidden="true">Hover for the story ↻</p>
+              </div>
+              <div class="flip-back">
+                <p class="flip-title" aria-hidden="true">Wildfire Digital</p>
+                <p>Lead CRO Specialist and Copywriter for one of Australia’s most successful Digital Marketing Agencies, working with e-com clients and SMEs.</p>
+              </div>
+            </div>
           </article>
-          <article class="case-card">
-            <img src="/assets/case-study-zensim.webp" alt="ZenSim eSims logo with illustrated mascot" width="400" height="360" loading="lazy">
-            <p class="category">Telecommunications</p>
-            <h3>ZenSim eSims</h3>
-            <p>Fractional CMO for one of Australia’s most exciting startups, responsible for Meta Ads, Klaviyo setup and CRO.</p>
+          <article class="case-card flip" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img src="/assets/case-study-zensim.webp" alt="ZenSim eSims logo with illustrated mascot" width="400" height="360" loading="lazy">
+                <p class="category">Telecommunications</p>
+                <h3>ZenSim eSims</h3>
+                <p class="flip-hint" aria-hidden="true">Hover for the story ↻</p>
+              </div>
+              <div class="flip-back">
+                <p class="flip-title" aria-hidden="true">ZenSim eSims</p>
+                <p>Fractional CMO for one of Australia’s most exciting startups, responsible for Meta Ads, Klaviyo setup and CRO.</p>
+              </div>
+            </div>
           </article>
-          <article class="case-card">
-            <img src="/assets/case-study-minimalist-training-club.webp" alt="Minimalist Training Club logo" width="400" height="360" loading="lazy">
-            <p class="category">Courses and Services</p>
-            <h3>Minimalist Training Club</h3>
-            <p>Copywriter and CRO expert for one of YouTube’s most popular personal trainers. Responsible for the landing page redesign.</p>
+          <article class="case-card flip" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img src="/assets/case-study-minimalist-training-club.webp" alt="Minimalist Training Club logo" width="400" height="360" loading="lazy">
+                <p class="category">Courses and Services</p>
+                <h3>Minimalist Training Club</h3>
+                <p class="flip-hint" aria-hidden="true">Hover for the story ↻</p>
+              </div>
+              <div class="flip-back">
+                <p class="flip-title" aria-hidden="true">Minimalist Training Club</p>
+                <p>Copywriter and CRO expert for one of YouTube’s most popular personal trainers. Responsible for the landing page redesign.</p>
+              </div>
+            </div>
           </article>
-          <article class="case-card">
-            <img src="/assets/case-study-thimsa.webp" alt="Thimsa logo" width="400" height="360" loading="lazy">
-            <p class="category">Fintech SaaS</p>
-            <h3>Thimsa</h3>
-            <p>Copywriter and CRO expert for a Dubai-based fintech startup revolutionising C2B and B2B payments.</p>
+          <article class="case-card flip" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img src="/assets/case-study-thimsa.webp" alt="Thimsa logo" width="400" height="360" loading="lazy">
+                <p class="category">Fintech SaaS</p>
+                <h3>Thimsa</h3>
+                <p class="flip-hint" aria-hidden="true">Hover for the story ↻</p>
+              </div>
+              <div class="flip-back">
+                <p class="flip-title" aria-hidden="true">Thimsa</p>
+                <p>Copywriter and CRO expert for a Dubai-based fintech startup revolutionising C2B and B2B payments.</p>
+              </div>
+            </div>
           </article>
         </div>
       </div>
@@ -463,5 +532,6 @@
     </div>
   </footer>
   <script src="/contact-form.js" defer></script>
+  <script src="/motion.js" defer></script>
 </body>
 </html>

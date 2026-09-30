@@ -532,3 +532,182 @@ p + p { margin-top: 0.9em; }
 .highlight { background: linear-gradient(transparent 58%, rgba(94, 235, 201, 0.6) 58%, rgba(94, 235, 201, 0.6) 88%, transparent 88%); padding: 0 6px; }
 .hero-v2 .lead { max-width: 600px; font-size: 18px; }
 @media (max-width: 767px) { .hero-v2 h1 { font-size: 28px; } }
+
+/* =========================================================
+   Motion & interaction
+   Hover effects always apply; entrance animations only run when
+   motion.js adds .motion to <html> (never with "reduce motion").
+   ========================================================= */
+
+/* Header tightens once you scroll */
+.site-header .container { transition: height 0.3s ease; }
+.site-header { transition: box-shadow 0.3s ease; }
+.site-header.scrolled .container { height: 58px; }
+.site-header.scrolled { box-shadow: 0 6px 24px -6px rgba(0, 42, 205, 0.18); }
+.site-nav a:not(.btn) { position: relative; }
+.site-nav a:not(.btn)::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px;
+  background: var(--gradient); transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease;
+}
+.site-nav a:not(.btn):hover::after { transform: scaleX(1); }
+
+/* Buttons: light sweep on hover */
+.btn { position: relative; overflow: hidden; }
+.btn::after {
+  content: ""; position: absolute; top: 0; left: -80%; width: 50%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: skewX(-20deg); transition: left 0.65s ease; pointer-events: none;
+}
+.btn:hover::after { left: 130%; }
+.btn-outline { transition: background 0.2s ease, transform 0.2s ease; }
+.btn-outline:hover { transform: translateY(-1px); }
+
+/* Glowing cards lift and glow brighter */
+.glow-card { transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease; }
+.glow-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px -10px rgba(0, 42, 205, 0.6), 0 0 0 4px rgba(94, 235, 201, 0.35);
+}
+.intro-card:hover, .compare-wrap:hover, .result:hover { transform: translateY(-3px); }
+
+.service-card img, .step-num { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.service-card:hover img { transform: scale(1.35) rotate(-8deg); }
+.step:hover .step-num { transform: rotate(360deg) scale(1.12); }
+
+.result img, .intro-photo, .story-photo { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.result:hover img { transform: scale(1.04) rotate(-1deg); }
+.intro-card:hover .intro-photo { transform: scale(1.03); }
+.story-photo:hover { transform: rotate(1.5deg) scale(1.02); }
+.metrics li { transition: transform 0.25s ease, border-color 0.25s ease; }
+.metrics li:hover { transform: translateY(-3px); border-color: var(--teal); }
+
+.compare tbody tr { transition: background 0.2s ease; }
+.compare tbody tr:hover { background: rgba(94, 235, 201, 0.12); }
+.faq summary { transition: color 0.2s ease; }
+.faq summary:hover { color: var(--blue); }
+.faq details[open] p { animation: fade-down 0.35s ease; }
+.logo-strip:hover .logo-track { animation-play-state: paused; }
+.logo-track img { transition: transform 0.25s ease; }
+.logo-track img:hover { transform: scale(1.12); }
+.chips li { transition: background 0.2s ease, color 0.2s ease; }
+.chips li:hover { background: var(--teal); color: var(--ink); }
+
+/* Case study flip cards: logo on the front, the story on the back */
+.case-card.flip { padding: 0; border: 0; box-shadow: none; background: none; perspective: 1200px; outline: none; }
+.flip-inner { display: grid; }
+.flip-front, .flip-back {
+  grid-area: 1 / 1;
+  padding: 13px;
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  box-shadow: var(--glow);
+}
+.flip-front { background: linear-gradient(45deg, #fff 0%, #f1f2f3 100%); }
+.flip-hint { margin-top: 10px; color: var(--teal-dark); font: 600 12px/1.3 var(--font-body); letter-spacing: 0.04em; }
+.flip-back {
+  display: flex; flex-direction: column; justify-content: center; gap: 14px;
+  padding: 28px 24px;
+  background: var(--gradient);
+  color: #fff;
+  font: 400 15px/1.6 var(--font-alt);
+}
+.flip-title { font: 400 22px/1.2 var(--font-display); text-transform: uppercase; }
+
+@media (hover: hover) {
+  .flip-inner { transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(0.3, 0.8, 0.2, 1); }
+  .flip-front, .flip-back { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+  .flip-back { transform: rotateY(180deg); }
+  .flip:hover .flip-inner, .flip:focus-visible .flip-inner { transform: rotateY(180deg); }
+}
+/* Touch screens can't hover, so show the story under the logo instead of flipping */
+@media (hover: none) {
+  .flip-front, .flip-back { grid-area: auto; }
+  .flip-front { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom: 0; box-shadow: none; }
+  .flip-back { border-top-left-radius: 0; border-top-right-radius: 0; padding: 18px; font-size: 14px; }
+  .flip-hint, .flip-title { display: none; }
+  .flip-inner { box-shadow: var(--glow); border-radius: 10px; }
+}
+
+/* Section titles get an accent bar */
+.section-title::after {
+  content: ""; display: block; width: 80px; height: 4px; margin-top: 14px;
+  border-radius: 4px; background: var(--gradient);
+}
+.section-title.center::after { margin-left: auto; margin-right: auto; }
+
+/* ---------- Entrance animations (only with .motion) ---------- */
+html.motion .reveal {
+  opacity: 0;
+  translate: 0 28px;
+  transition:
+    opacity 0.7s ease var(--delay, 0ms),
+    translate 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) var(--delay, 0ms),
+    transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.35s ease;
+}
+html.motion .reveal.is-visible { opacity: 1; translate: none; }
+html.motion .section-title::after { width: 0; transition: width 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s; }
+html.motion .section-title.is-visible::after { width: 80px; }
+
+html.motion .hero-wordmark { animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both, float 7s ease-in-out 1.2s infinite; }
+html.motion .hero-v2 .eyebrow { animation: rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s both; }
+html.motion .hero-v2 h1 { animation: rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s both; }
+html.motion .hero-v2 .lead { animation: rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s both; }
+html.motion .hero-ctas { animation: rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.55s both; }
+html.motion .stat { animation: rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; }
+html.motion .stat:nth-child(1) { animation-delay: 0.7s; }
+html.motion .stat:nth-child(2) { animation-delay: 0.8s; }
+html.motion .stat:nth-child(3) { animation-delay: 0.9s; }
+html.motion .highlight { background-size: 0% 100%; background-repeat: no-repeat; animation: sweep 0.9s cubic-bezier(0.6, 0, 0.2, 1) 1s forwards; }
+html.motion .hero-ctas .btn { animation: pulse-glow 2.8s ease-in-out 2s infinite; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes sweep { to { background-size: 100% 100%; } }
+@keyframes fade-down { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+  50% { box-shadow: 0 0 0 6px rgba(94, 235, 201, 0.35), 0 0 22px rgba(0, 42, 205, 0.45); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Back of flip cards: override the older .case-card p:last-child colour/size */
+.case-card .flip-back p:last-child { color: #fff; font: 400 15px/1.6 var(--font-alt); margin: 0; }
+@media (hover: none) { .case-card .flip-back p:last-child { font-size: 14px; } }
+
+.intro-card .intro-lead { color: var(--ink); font-size: 19px; line-height: 1.55; font-weight: 500; }
+
+/* Stat numbers "pop" when their count-up lands */
+.stat strong { display: inline-block; font-variant-numeric: tabular-nums; }
+.stat strong.counted { animation: count-pop 0.45s cubic-bezier(0.2, 1.6, 0.4, 1); }
+@keyframes count-pop { 0% { transform: scale(1); } 45% { transform: scale(1.18); color: var(--teal-dark); } 100% { transform: scale(1); } }
+
+/* Method cards: icon tile + large outlined step number in the corner */
+.step { position: relative; overflow: hidden; }
+.step-icon {
+  display: grid; place-items: center;
+  width: 56px; height: 56px; border-radius: 16px;
+  background: var(--gradient); color: #fff;
+  box-shadow: 0 8px 18px -6px rgba(0, 42, 205, 0.55);
+  margin-bottom: 20px;
+  transition: transform 0.5s cubic-bezier(0.2, 1.4, 0.4, 1);
+}
+.step-icon svg { width: 28px; height: 28px; }
+.step .step-num {
+  position: absolute; top: 16px; right: 20px;
+  display: block; width: auto; height: auto; margin: 0;
+  background: none; border-radius: 0;
+  color: transparent; -webkit-text-stroke: 2px var(--teal);
+  font: 400 52px/1 var(--font-display);
+  opacity: 0.85;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.3s ease;
+}
+.step:hover .step-num { transform: translateY(-4px) scale(1.06); color: rgba(94, 235, 201, 0.25); }
+.step:hover .step-icon { transform: rotate(-8deg) scale(1.1); }
+
+/* Longer logo strip (press + clients): slower loop so each logo stays readable */
+.logo-track { animation-duration: 60s; gap: 80px; }
+.logo-track img { max-width: 200px; object-fit: contain; }
