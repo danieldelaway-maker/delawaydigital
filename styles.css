@@ -152,7 +152,6 @@ p + p { margin-top: 0.9em; }
   gap: 45px;
 }
 .service-card { padding: 24px; }
-.service-card img { width: 24px; height: 24px; margin-bottom: 26px; }
 .service-card h3 { color: var(--blue); font: 500 17.5px/1.3 var(--font-alt); margin-bottom: 10px; }
 .service-card p { color: #000; font: 500 14.25px/1.5 var(--font-alt); }
 
@@ -570,8 +569,7 @@ p + p { margin-top: 0.9em; }
 }
 .intro-card:hover, .compare-wrap:hover, .result:hover { transform: translateY(-3px); }
 
-.service-card img, .step-num { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
-.service-card:hover img { transform: scale(1.35) rotate(-8deg); }
+.step-num { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
 .step:hover .step-num { transform: rotate(360deg) scale(1.12); }
 
 .result img, .intro-photo, .story-photo { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
@@ -686,7 +684,7 @@ html.motion .hero-ctas .btn { animation: pulse-glow 2.8s ease-in-out 2s infinite
 
 /* Method cards: icon tile + large outlined step number in the corner */
 .step { position: relative; overflow: hidden; }
-.step-icon {
+.step-icon, .icon-tile {
   display: grid; place-items: center;
   width: 56px; height: 56px; border-radius: 16px;
   background: var(--gradient); color: #fff;
@@ -694,7 +692,7 @@ html.motion .hero-ctas .btn { animation: pulse-glow 2.8s ease-in-out 2s infinite
   margin-bottom: 20px;
   transition: transform 0.5s cubic-bezier(0.2, 1.4, 0.4, 1);
 }
-.step-icon svg { width: 28px; height: 28px; }
+.step-icon svg, .icon-tile svg { width: 28px; height: 28px; }
 .step .step-num {
   position: absolute; top: 16px; right: 20px;
   display: block; width: auto; height: auto; margin: 0;
@@ -705,7 +703,7 @@ html.motion .hero-ctas .btn { animation: pulse-glow 2.8s ease-in-out 2s infinite
   transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.3s ease;
 }
 .step:hover .step-num { transform: translateY(-4px) scale(1.06); color: rgba(94, 235, 201, 0.25); }
-.step:hover .step-icon { transform: rotate(-8deg) scale(1.1); }
+.step:hover .step-icon, .service-card:hover .icon-tile { transform: rotate(-8deg) scale(1.1); }
 
 /* Longer logo strip (press + clients): slower loop so each logo stays readable */
 .logo-track { animation-duration: 60s; gap: 80px; }
