@@ -225,7 +225,7 @@ p + p { margin-top: 0.9em; }
   margin-top: 80px;
   min-height: 504px;
   display: flex; align-items: center;
-  background: url("/assets/cro-laptop-desktop.png") center / cover no-repeat;
+  background: url("/assets/cro-laptop-desktop.webp") center / cover no-repeat;
 }
 .cro-photo .copy { max-width: 533px; }
 .cro-photo h2 { color: var(--blue); font: 400 36px/1.15 var(--font-display); text-transform: uppercase; margin-bottom: 16px; }

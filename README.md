@@ -17,6 +17,9 @@ The header and footer are copied into every page. If you change one, change them
 
 ## Conventions
 
+- When you add a page, add it to `sitemap.xml` too. `404.html` is GitHub Pages' not-found page.
+- Use WebP for photos, sized to about twice their displayed width.
+
 - One `<h1>` per page, plus a unique `<title>` and `<meta name="description">`.
 - Every `<img>` needs `alt` text. Use `alt=""` for decorative icons.
 - Use root-relative paths (`/assets/...`, `/about/`).
