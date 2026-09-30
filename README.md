@@ -1,6 +1,6 @@
 # delawaydigital.com
 
-Static site: plain HTML, one stylesheet, no JavaScript, no build step. Hosted on Netlify.
+Static site: plain HTML, one stylesheet, one tiny script for the contact form, no build step. Hosted on GitHub Pages: pushing to `main` publishes the site.
 
 ## Layout
 
@@ -23,7 +23,9 @@ The header and footer are copied into every page. If you change one, change them
 
 ## Contact form
 
-Uses Netlify Forms (`data-netlify="true"`, form name `contact`). Submissions show up in the Netlify dashboard under **Forms**. Set up email notifications there.
+Uses Formspree. The form `action` in `index.html` is `https://formspree.io/f/<FORM_ID>`, and submissions are emailed to the Formspree account owner. `contact-form.js` sends the form in the background and redirects to `/thanks/`. Without JavaScript it falls back to Formspree’s own thank-you page.
+
+`.nojekyll` tells GitHub Pages to serve the files as-is. The custom domain is set in the repo's **Settings → Pages**, which adds a `CNAME` file.
 
 ## Local preview
 

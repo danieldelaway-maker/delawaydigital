@@ -259,15 +259,15 @@
       </div>
     </section>
 
-    <!-- ===== Contact (Netlify Forms) ===== -->
+    <!-- ===== Contact (Formspree; FORM_ID is set in the form action) ===== -->
     <section class="contact" id="contact">
       <div class="container">
         <h2>CRO, Meta Ads, Klaviyo, Fractional CMO</h2>
         <p class="intro">Want to work with someone that can support across every aspect of your marketing funnel? You’ve come to the right place. Let’s chat..</p>
 
-        <form class="contact-form" name="contact" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contact">
-          <p class="honeypot"><label>Don’t fill this out: <input name="bot-field"></label></p>
+        <form class="contact-form" id="contact-form" method="POST" action="https://formspree.io/f/FORM_ID">
+          <input type="hidden" name="_subject" value="New enquiry from delawaydigital.com">
+          <p class="honeypot"><label>Don’t fill this out: <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
 
           <div class="full">
             <label for="name">Name *</label>
@@ -291,6 +291,7 @@
           </div>
           <div class="full">
             <button class="btn" type="submit">Submit</button>
+            <p class="form-error" role="alert" hidden>Sorry, that didn’t send. Please try again in a moment.</p>
           </div>
         </form>
       </div>
@@ -325,5 +326,6 @@
       </div>
     </div>
   </footer>
+  <script src="/contact-form.js" defer></script>
 </body>
 </html>

@@ -341,3 +341,6 @@ p + p { margin-top: 0.9em; }
   .about h1, .prose h1 { font-size: 32px; }
   .cta-box h2 { font-size: 26px; }
 }
+
+.form-error { margin-top: 10px; color: #b00020; font-size: 14px; }
+.contact-form button:disabled { opacity: 0.6; cursor: wait; }
