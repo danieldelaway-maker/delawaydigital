@@ -31,26 +31,41 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   items.forEach((el) => revealer.observe(el));
 
-  // Count the headline stats up from zero the first time they're seen
+  // Headline stats rapidly count up from zero whenever they scroll fully into view.
+  // They reset to 0 once they leave the screen, so they replay when you come back.
   const counters = document.querySelectorAll('[data-count]');
+  const pageStart = performance.now();
+  const entranceDelay = 1100; // let the stat cards finish fading in on first load
+  const format = (el, n) => (el.dataset.prefix || '') + n + (el.dataset.suffix || '');
+  const run = (el) => {
+    const target = Number(el.dataset.count);
+    const duration = 1200;
+    const start = performance.now();
+    el.classList.remove('counted');
+    const tick = (now) => {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 4);
+      el.textContent = format(el, Math.round(target * eased));
+      if (t < 1) requestAnimationFrame(tick);
+      else el.classList.add('counted');
+    };
+    requestAnimationFrame(tick);
+  };
+  counters.forEach((el) => { el.textContent = format(el, 0); });
   const counter = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
       const el = entry.target;
-      const target = Number(el.dataset.count);
-      const prefix = el.dataset.prefix || '';
-      const suffix = el.dataset.suffix || '';
-      const start = performance.now();
-      const duration = 1400;
-      const tick = (now) => {
-        const t = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - t, 3);
-        el.textContent = prefix + Math.round(target * eased) + suffix;
-        if (t < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-      counter.unobserve(el);
+      if (entry.intersectionRatio >= 0.95) {
+        if (el.dataset.running) return;
+        el.dataset.running = '1';
+        const wait = Math.max(0, entranceDelay - (performance.now() - pageStart));
+        setTimeout(() => run(el), wait);
+      } else if (!entry.isIntersecting) {
+        delete el.dataset.running;
+        el.classList.remove('counted');
+        el.textContent = format(el, 0);
+      }
     });
-  }, { threshold: 0.6 });
+  }, { threshold: [0, 0.95] });
   counters.forEach((el) => counter.observe(el));
 })();
