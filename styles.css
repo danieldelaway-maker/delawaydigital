@@ -715,3 +715,18 @@ html.motion .hero-ctas .btn { animation: pulse-glow 2.8s ease-in-out 2s infinite
 /* Result metrics count up too, with the same "pop" as the headline stats */
 .metrics strong { font-variant-numeric: tabular-nums; }
 .metrics strong.counted { animation: count-pop 0.45s cubic-bezier(0.2, 1.6, 0.4, 1); transform-origin: left center; }
+
+/* Reviews bar: Google on the first row, Upwork on the second */
+.reviews-bar { flex-direction: column; gap: 16px; }
+.review-group { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 14px; }
+.review-divider { width: 100%; max-width: 420px; height: 1px; background: var(--grey-border); }
+.reviews-bar .upwork { width: 84px; height: auto; }
+.trp-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 12px 5px 8px;
+  border-radius: 999px;
+  background: #fdeef7; color: #b0137a;
+  font: 700 13px/1 var(--font-body);
+  letter-spacing: 0.01em;
+}
+.trp-badge svg { width: 16px; height: 16px; }
