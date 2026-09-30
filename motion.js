@@ -13,7 +13,7 @@
   const revealSelector = [
     '.section-title', '.section-subtitle', '.story p', '.story-photo', '.intro-card',
     '.step', '.service-card', '.result', '.subhead', '.case-card', '.compare-wrap',
-    '.testimonial', '.featured-testimonial', '.faq details', '.contact-copy', '.contact-form',
+    '.testimonial', '.featured-testimonial', '.faq details', '.contact-copy', '.contact-form', '.proof-card',
     '.trust-label', '.reviews-bar', '.cta-box', '.about h1', '.about > .container > p'
   ].join(',');
   const items = document.querySelectorAll(revealSelector);
@@ -36,7 +36,12 @@
   const counters = document.querySelectorAll('[data-count]');
   const pageStart = performance.now();
   const entranceDelay = 1100; // let the stat cards finish fading in on first load
-  const format = (el, n) => (el.dataset.prefix || '') + n + (el.dataset.suffix || '');
+  // data-decimals="2" keeps decimal places (1.97%); whole numbers get thousands separators ($222,933)
+  const format = (el, n) => {
+    const decimals = Number(el.dataset.decimals || 0);
+    const body = decimals ? n.toFixed(decimals) : Math.round(n).toLocaleString('en-US');
+    return (el.dataset.prefix || '') + body + (el.dataset.suffix || '');
+  };
   const run = (el) => {
     const target = Number(el.dataset.count);
     const duration = 1200;
@@ -45,7 +50,7 @@
     const tick = (now) => {
       const t = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - t, 4);
-      el.textContent = format(el, Math.round(target * eased));
+      el.textContent = format(el, target * eased);
       if (t < 1) requestAnimationFrame(tick);
       else el.classList.add('counted');
     };
