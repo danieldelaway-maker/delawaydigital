@@ -938,3 +938,40 @@ html.motion .proof-card.is-visible .bar { transform: scaleY(1); }
 @media (max-width: 767px) { .industry strong { font-size: 13px; } .industry small { font-size: 11px; } }
 .industry > span:last-child { min-width: 0; }
 .industry strong { overflow-wrap: anywhere; }
+
+/* =========================================================
+   Contact section motion
+   ========================================================= */
+/* "Online" dot on Dan's photo with a soft pulsing ring */
+.avatar-wrap { position: relative; flex: none; display: inline-block; line-height: 0; }
+.online-dot {
+  position: absolute; right: 1px; bottom: 1px;
+  width: 13px; height: 13px; border-radius: 50%;
+  background: #22c55e; border: 2px solid #fff;
+}
+.online-dot::after {
+  content: ""; position: absolute; inset: -2px; border-radius: 50%;
+  background: #22c55e; opacity: 0.6;
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes ping { 75%, 100% { transform: scale(2.4); opacity: 0; } }
+
+/* Contact heading highlight sits nicely on the display font */
+.contact h2 .highlight { padding: 0 4px; }
+
+/* Checklist ticks pop in after each line slides in */
+html.motion .contact-copy .checklist li::before { transform: scale(0); }
+html.motion .contact-copy .checklist li.is-visible::before {
+  animation: tick-pop 0.5s cubic-bezier(0.2, 1.6, 0.4, 1) both;
+  animation-delay: calc(var(--delay, 0ms) + 250ms);
+}
+@keyframes tick-pop { from { transform: scale(0) rotate(-30deg); } to { transform: scale(1) rotate(0); } }
+
+/* Badges pop rather than slide */
+html.motion .contact-copy .chips li.reveal { translate: none; scale: 0.6; }
+html.motion .contact-copy .chips li.is-visible { scale: 1; transition: opacity 0.4s ease var(--delay, 0ms), scale 0.5s cubic-bezier(0.2, 1.6, 0.4, 1) var(--delay, 0ms), background 0.2s ease, color 0.2s ease; }
+
+/* Form: glowing focus + pulsing submit */
+.contact-form input, .contact-form textarea { transition: box-shadow 0.25s ease, border-color 0.25s ease; }
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--teal-dark); box-shadow: 0 0 0 4px rgba(94, 235, 201, 0.35); }
+html.motion .contact-form button[type="submit"] { animation: pulse-glow 2.8s ease-in-out 1.5s infinite; }
