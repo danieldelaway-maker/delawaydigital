@@ -911,3 +911,27 @@ html.motion .proof-card.is-visible .bar { transform: scaleY(1); }
 .cta-box .btn { flex: none; }
 .kpi-note { display: block; margin-top: 6px; color: var(--text); font-size: 11.5px; line-height: 1.35; }
 .kpi .kpi-note strong { display: inline; margin: 0; color: var(--ink); font: 700 11.5px/1.35 var(--font-body); }
+
+/* Industries I've worked in */
+.industries { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.industry {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px; border-radius: 14px;
+  background: #fff; border: 1px solid rgba(94, 235, 201, 0.75);
+  box-shadow: 0 8px 18px -12px rgba(0, 42, 205, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.industry:hover { transform: translateY(-3px); border-color: var(--teal); box-shadow: 0 14px 26px -12px rgba(0, 42, 205, 0.6); }
+.industry-icon {
+  flex: none; display: grid; place-items: center;
+  width: 38px; height: 38px; border-radius: 11px;
+  background: var(--gradient); color: #fff;
+  transition: transform 0.4s cubic-bezier(0.2, 1.4, 0.4, 1);
+}
+.industry:hover .industry-icon { transform: rotate(-8deg) scale(1.08); }
+.industry-icon svg { width: 20px; height: 20px; }
+.industry strong { display: block; color: var(--ink); font: 700 14px/1.3 var(--font-body); }
+.industry small { display: block; margin-top: 2px; color: var(--muted); font-size: 12px; line-height: 1.3; }
+@media (max-width: 1024px) { .industries { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 767px) { .industries { grid-template-columns: 1fr 1fr; gap: 10px; } .industry { padding: 12px; gap: 10px; } .industry-icon { width: 32px; height: 32px; } }
+@media (max-width: 420px) { .industries { grid-template-columns: 1fr; } }
