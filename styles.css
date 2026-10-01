@@ -934,4 +934,5 @@ html.motion .proof-card.is-visible .bar { transform: scaleY(1); }
 .industry small { display: block; margin-top: 2px; color: var(--muted); font-size: 12px; line-height: 1.3; }
 @media (max-width: 1024px) { .industries { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 767px) { .industries { grid-template-columns: 1fr 1fr; gap: 10px; } .industry { padding: 12px; gap: 10px; } .industry-icon { width: 32px; height: 32px; } }
-@media (max-width: 420px) { .industries { grid-template-columns: 1fr; } }
+@media (max-width: 340px) { .industries { grid-template-columns: 1fr; } }
+@media (max-width: 767px) { .industry strong { font-size: 13px; } .industry small { font-size: 11px; } }
