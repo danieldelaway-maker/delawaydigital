@@ -31,6 +31,25 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   items.forEach((el) => revealer.observe(el));
 
+  // Highlighted words sweep in whenever they scroll into view, and reset when they leave
+  const highlights = document.querySelectorAll('.highlight');
+  const highlightStart = performance.now();
+  const highlighter = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const el = entry.target;
+      if (entry.isIntersecting) {
+        // on first load, let the headline finish rising in before sweeping
+        const wait = Math.max(0, 900 - (performance.now() - highlightStart));
+        clearTimeout(el._sweep);
+        el._sweep = setTimeout(() => el.classList.add('lit'), wait);
+      } else {
+        clearTimeout(el._sweep);
+        el.classList.remove('lit');
+      }
+    });
+  }, { threshold: 1, rootMargin: '-60px 0px -60px 0px' });
+  highlights.forEach((el) => highlighter.observe(el));
+
   // Headline stats rapidly count up from zero whenever they scroll fully into view.
   // They reset to 0 once they leave the screen, so they replay when you come back.
   const counters = document.querySelectorAll('[data-count]');
