@@ -907,3 +907,5 @@ html.motion .proof-card.is-visible .bar { transform: scaleY(1); }
   .footer-bottom { flex-direction: column; }
 }
 .cta-box .btn { flex: none; }
+.kpi-note { display: block; margin-top: 6px; color: var(--text); font-size: 11.5px; line-height: 1.35; }
+.kpi .kpi-note strong { display: inline; margin: 0; color: var(--ink); font: 700 11.5px/1.35 var(--font-body); }
