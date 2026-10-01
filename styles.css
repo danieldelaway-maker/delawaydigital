@@ -975,3 +975,7 @@ html.motion .contact-copy .chips li.is-visible { scale: 1; transition: opacity 0
 .contact-form input, .contact-form textarea { transition: box-shadow 0.25s ease, border-color 0.25s ease; }
 .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--teal-dark); box-shadow: 0 0 0 4px rgba(94, 235, 201, 0.35); }
 html.motion .contact-form button[type="submit"] { animation: pulse-glow 2.8s ease-in-out 1.5s infinite; }
+
+/* Testimonial caption with a round photo */
+.testimonial figcaption.with-avatar { display: flex; align-items: center; gap: 10px; }
+.testimonial figcaption.with-avatar img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--teal); flex: none; }
