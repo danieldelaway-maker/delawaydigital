@@ -976,3 +976,9 @@ html.motion .contact-form button[type="submit"] { animation: pulse-glow 2.8s eas
 /* Testimonial caption with a round photo */
 .testimonial figcaption.with-avatar { display: flex; align-items: center; gap: 10px; }
 .testimonial figcaption.with-avatar img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--teal); flex: none; }
+
+/* Intro card on phones: keep a gutter either side and centre the photo */
+@media (max-width: 767px) {
+  .intro-card { width: calc(100% - 32px); }
+  .intro-photo { justify-self: center; }
+}
