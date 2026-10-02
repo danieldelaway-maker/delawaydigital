@@ -585,19 +585,17 @@ p + p { margin-top: 0.9em; }
 }
 .flip-title { font: 400 22px/1.2 var(--font-display); text-transform: uppercase; }
 
+.flip-inner { transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(0.3, 0.8, 0.2, 1); }
+.flip-front, .flip-back { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.flip-back { transform: rotateY(180deg); }
+.flip:focus-visible .flip-inner, .flip.is-held .flip-inner { transform: rotateY(180deg); }
 @media (hover: hover) {
-  .flip-inner { transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(0.3, 0.8, 0.2, 1); }
-  .flip-front, .flip-back { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-  .flip-back { transform: rotateY(180deg); }
-  .flip:hover .flip-inner, .flip:focus-visible .flip-inner { transform: rotateY(180deg); }
+  .flip:hover .flip-inner { transform: rotateY(180deg); }
 }
-/* Touch screens can't hover, so show the story under the logo instead of flipping */
+/* Touch screens: press and hold a card to flip it (see motion.js) */
 @media (hover: none) {
-  .flip-front, .flip-back { grid-area: auto; }
-  .flip-front { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom: 0; box-shadow: none; }
-  .flip-back { border-top-left-radius: 0; border-top-right-radius: 0; padding: 18px; font-size: 14px; }
-  .flip-title { display: none; }
-  .flip-inner { box-shadow: var(--glow); border-radius: 10px; }
+  .case-card.flip { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+  .case-card.flip img { pointer-events: none; }
 }
 
 /* Section titles get an accent bar */
@@ -650,7 +648,6 @@ html.motion .hero-ctas .btn { animation: pulse-glow 2.8s ease-in-out 2s infinite
 
 /* Back of flip cards: override the older .case-card p:last-child colour/size */
 .case-card .flip-back p:last-child { color: #fff; font: 400 15px/1.6 var(--font-alt); margin: 0; }
-@media (hover: none) { .case-card .flip-back p:last-child { font-size: 14px; } }
 
 .intro-card .intro-lead { color: var(--ink); font-size: 19px; line-height: 1.55; font-weight: 500; }
 

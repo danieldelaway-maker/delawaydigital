@@ -6,6 +6,25 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
+  // Touch screens: press and hold a brand card to flip it, let go to flip back.
+  // A short delay and a movement check stop it flipping while you scroll past.
+  document.querySelectorAll('.flip').forEach((card) => {
+    let timer, startX, startY;
+    const release = () => { clearTimeout(timer); card.classList.remove('is-held'); };
+    card.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      timer = setTimeout(() => card.classList.add('is-held'), 180);
+    }, { passive: true });
+    card.addEventListener('touchmove', (e) => {
+      const t = e.touches[0];
+      if (!card.classList.contains('is-held') && Math.hypot(t.clientX - startX, t.clientY - startY) > 10) release();
+    }, { passive: true });
+    card.addEventListener('touchend', release);
+    card.addEventListener('touchcancel', release);
+    card.addEventListener('contextmenu', (e) => e.preventDefault());
+  });
+
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
   document.documentElement.classList.add('motion');
 
