@@ -32,22 +32,26 @@
     const next = carousel.querySelector('.carousel-next');
     if (!track || !previous || !next) return;
 
-    const updateButtons = () => {
-      previous.disabled = track.scrollLeft <= 2;
-      next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
-    };
     const move = (direction) => {
       const card = track.querySelector('.testimonial');
       if (!card) return;
       const gap = parseFloat(getComputedStyle(track).gap) || 0;
+      const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+
+      if (direction > 0 && track.scrollLeft >= maxScroll - 2) {
+        track.scrollTo({ left: 0, behavior: 'smooth' });
+        return;
+      }
+      if (direction < 0 && track.scrollLeft <= 8) {
+        track.scrollTo({ left: maxScroll, behavior: 'smooth' });
+        return;
+      }
+
       track.scrollBy({ left: direction * (card.getBoundingClientRect().width + gap), behavior: 'smooth' });
     };
 
     previous.addEventListener('click', () => move(-1));
     next.addEventListener('click', () => move(1));
-    track.addEventListener('scroll', updateButtons, { passive: true });
-    window.addEventListener('resize', updateButtons, { passive: true });
-    updateButtons();
   });
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
