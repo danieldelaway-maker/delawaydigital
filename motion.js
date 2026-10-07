@@ -30,11 +30,20 @@
     const track = carousel.querySelector('.testimonial-grid');
     const previous = carousel.querySelector('.carousel-prev');
     const next = carousel.querySelector('.carousel-next');
+    const status = carousel.querySelector('.carousel-status strong');
     if (!track || !previous || !next) return;
 
     const updateButtons = () => {
       previous.disabled = track.scrollLeft <= 2;
       next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+      const card = track.querySelector('.testimonial');
+      if (!card || !status) return;
+      const gap = parseFloat(getComputedStyle(track).gap) || 0;
+      const step = card.getBoundingClientRect().width + gap;
+      const first = Math.round(track.scrollLeft / step) + 1;
+      const visible = Math.max(1, Math.floor((track.clientWidth + gap) / step));
+      const total = track.querySelectorAll('.testimonial').length;
+      status.textContent = `${first}–${Math.min(total, first + visible - 1)}`;
     };
     const move = (direction) => {
       const card = track.querySelector('.testimonial');
