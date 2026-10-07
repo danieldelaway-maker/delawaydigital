@@ -398,7 +398,7 @@ p + p { margin-top: 0.9em; }
   scrollbar-width: none; overscroll-behavior-inline: contain; padding: 18px 2px 22px;
 }
 .testimonial-grid::-webkit-scrollbar { display: none; }
-.testimonial-grid .testimonial { flex: 0 0 calc((100% - 60px) / 3); scroll-snap-align: start; }
+.testimonial-grid .testimonial { flex: 0 0 calc((100% - 40px) / 2); scroll-snap-align: start; }
 .carousel-button {
   position: absolute; z-index: 3; top: 50%; translate: 0 -50%;
   width: 48px; height: 48px; border: 2px solid var(--teal); border-radius: 50%;
@@ -1003,7 +1003,7 @@ html.motion .contact-form button[type="submit"] { animation: pulse-glow 2.8s eas
 }
 
 @media (max-width: 1023px) {
-  .testimonial-grid .testimonial { flex-basis: calc((100% - 24px) / 2); }
+  .testimonial-grid .testimonial { flex-basis: 76%; }
   .carousel-prev { left: -12px; }
   .carousel-next { right: -12px; }
 }
