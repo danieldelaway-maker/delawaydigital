@@ -25,6 +25,31 @@
     card.addEventListener('contextmenu', (e) => e.preventDefault());
   });
 
+  // Testimonial carousel: buttons move one card at a time; touch and trackpads scroll naturally.
+  document.querySelectorAll('.testimonial-carousel').forEach((carousel) => {
+    const track = carousel.querySelector('.testimonial-grid');
+    const previous = carousel.querySelector('.carousel-prev');
+    const next = carousel.querySelector('.carousel-next');
+    if (!track || !previous || !next) return;
+
+    const updateButtons = () => {
+      previous.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+    };
+    const move = (direction) => {
+      const card = track.querySelector('.testimonial');
+      if (!card) return;
+      const gap = parseFloat(getComputedStyle(track).gap) || 0;
+      track.scrollBy({ left: direction * (card.getBoundingClientRect().width + gap), behavior: 'smooth' });
+    };
+
+    previous.addEventListener('click', () => move(-1));
+    next.addEventListener('click', () => move(1));
+    track.addEventListener('scroll', updateButtons, { passive: true });
+    window.addEventListener('resize', updateButtons, { passive: true });
+    updateButtons();
+  });
+
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
   document.documentElement.classList.add('motion');
 
