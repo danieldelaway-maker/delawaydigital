@@ -984,5 +984,5 @@ html.motion .contact-form button[type="submit"] { animation: pulse-glow 2.8s eas
 }
 
 /* Three testimonial cards: a row of three on desktop, stacked below that */
-@media (min-width: 1024px) { .testimonial-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1024px) { .testimonial-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 1023px) { .testimonial-grid { grid-template-columns: 1fr; } }
