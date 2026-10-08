@@ -395,7 +395,7 @@ p + p { margin-top: 0.9em; }
 .testimonial-carousel { position: relative; }
 .testimonial-grid {
   display: flex; gap: 30px; overflow-x: auto; scroll-snap-type: x mandatory;
-  scrollbar-width: none; overscroll-behavior-inline: contain; padding: 18px 2px 22px;
+  scrollbar-width: none; overscroll-behavior-inline: contain; padding: 18px 2px 46px;
 }
 .testimonial-grid::-webkit-scrollbar { display: none; }
 .testimonial-grid .testimonial {
@@ -405,7 +405,7 @@ p + p { margin-top: 0.9em; }
 .testimonial-grid .testimonial .stars { margin-inline: auto; }
 .testimonial-grid .testimonial figcaption.with-avatar { justify-content: center; width: 100%; }
 .carousel-controls {
-  display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 18px;
+  display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 0;
 }
 .carousel-button {
   display: grid; place-items: center; width: 52px; height: 48px; padding: 0;
