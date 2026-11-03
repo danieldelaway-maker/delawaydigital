@@ -54,6 +54,14 @@
     next.addEventListener('click', () => move(1));
   });
 
+  // FAQ: opening one answer closes the others in the same list.
+  document.querySelectorAll('.faq').forEach((faq) => {
+    const items = faq.querySelectorAll('details');
+    items.forEach((item) => item.addEventListener('toggle', () => {
+      if (item.open) items.forEach((other) => { if (other !== item) other.open = false; });
+    }));
+  });
+
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
   document.documentElement.classList.add('motion');
 
